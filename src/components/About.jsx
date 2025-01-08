@@ -32,9 +32,9 @@ const About = () => {
           Welcome to HP
         </p>
 
-        <AnimatedTitle title = "Bri<b>d</b>ge the past with the prese<b>n</b>t" containerClass="mt-5 !text-black text-center" />
+        <AnimatedTitle title = "Disc<b>o</b>ver the bridge between <br /> the past and the prese<b>n</b>t" containerClass="mt-5 !text-black text-center" />
 
-        <div className="about-subtext gap-1">
+        <div className="about-subtext gap-1 mt-5">
         <p>Established in 2022, the Hoang Phuc Lion Dance Association is dedicated to preserving and celebrating the heritage of lion dance.</p>
           <p className="text-gray-500">
             A cherished tradition symbolizing strength, courage, and good fortune. Our performers create a mesmerizing experience all across Chicagoland.
@@ -45,7 +45,7 @@ const About = () => {
       <div className="h-dvh w-screen" id="clip">
         <div className="mask-clip-path about-image">
           <img
-            src="img/about.webp"
+            src="img/modern-lion-dance.webp"
             alt="Background"
             className="absolute left-0 top-0 size-full object-cover"
           />
