@@ -151,7 +151,7 @@ const Hero = () => {
                     id="book-now"
                     title="Book now" 
                     leftIcon={<TiLocationArrow />}
-                    containerClass="!bg-yellow-300 flex-center gap-1"
+                    containerClass="!bg-blue-400 flex-center gap-1"
                     />
                 </div>
             </div>

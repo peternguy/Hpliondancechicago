@@ -32,12 +32,13 @@ const About = () => {
           Welcome to HP
         </p>
 
-        <AnimatedTitle title = "Disc<b>o</b>ver the bridge between <br /> the past and the prese<b>n</b>t" containerClass="mt-5 !text-black text-center" />
+        <AnimatedTitle title = "Bri<b>d</b>ge between the past and <br /> present all across Chicag<b>o</b>" containerClass="mt-5 !text-black text-center" />
 
         <div className="about-subtext">
-        <p>Established in 2022, the Hoang Phuc Lion Dance Association is dedicated to preserving and celebrating the heritage of lion dance.</p>
+        <p>Dedicated to preserving and celebrating the heritage of lion dance.</p>
           <p className="text-gray-500">
-            A cherished tradition symbolizing strength, courage, and good fortune. Our performers create a mesmerizing experience all across Chicagoland.
+            A cherished tradition symbolizing strength, courage, and good fortune.
+            Get ready for a mesmerizing experience.
           </p>
         </div>
       </div>
