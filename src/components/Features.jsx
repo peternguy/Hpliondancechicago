@@ -150,10 +150,10 @@ const Features = () => (
             src="videos/feature-13.mp4"
             title={
               <>
-                Cont<b>a</b>ct
+                Ser<b>v</b>ices
               </>
             }
-            description="Have something to celebrate? Elevate the experience. Let's Talk."
+            description="Explore our wide range of offerings designed to fit your unique needs and preferences."
             isComingSoon
             style={{
               transform: "scale(2)", // Adjust zoom here
@@ -179,7 +179,7 @@ const Features = () => (
             src="videos/feature-4.mp4"
             title={
               <>
-                Somethi<b>n</b>g
+                Spons<b>o</b>r
               </>
             }
             description="ABlorp-zap AI Wizzle - flibbering your glopplay to be more zazz and sprockety."
@@ -187,7 +187,7 @@ const Features = () => (
           />
         </BentoTilt>
 
-        <BentoTilt className="bento-tilt_2">
+        {/* <BentoTilt className="bento-tilt_2">
           <div className="flex size-full flex-col justify-between bg-violet-300 p-5">
             <h1 className="bento-title special-font max-w-64 text-black">
               M<b>o</b>re co<b>m</b>ing s<b>o</b>on.
@@ -195,9 +195,9 @@ const Features = () => (
 
             <TiLocationArrow className="m-5 scale-[5] self-end" />
           </div>
-        </BentoTilt>
+        </BentoTilt> */}
 
-        <BentoTilt className="bento-tilt_2">
+        {/* <BentoTilt className="bento-tilt_2">
           <video
             src="videos/feature-6.mp4"
             loop
@@ -205,7 +205,7 @@ const Features = () => (
             autoPlay
             className="size-full object-cover object-center"
           />
-        </BentoTilt>
+        </BentoTilt> */}
       </div>
     </div>
   </section>

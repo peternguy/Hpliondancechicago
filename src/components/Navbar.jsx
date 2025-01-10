@@ -3,9 +3,16 @@ import Button from './Button'
 import { TiLocationArrow } from 'react-icons/ti'
 import { useWindowScroll } from 'react-use'
 import gsap from 'gsap'
+import { Link } from 'react-router-dom'
 
-const navItems = ['Gallery', 'About', 'Contact'];
-
+const navItems = [
+    { name: 'Gallery', path: '/gallery' },
+    { name: 'About', path: '/about' },
+    { name: 'Services', path: '/services' },
+    { name: 'Contact', path: '/contact' },
+    { name: 'Sponsor', path: '/sponsor' }
+  ];
+  
 const Navbar = () => { 
   const navContainerRef = useRef(null);
   const audioElementRef = useRef(null);
@@ -33,7 +40,7 @@ const Navbar = () => {
   }, [currentScrollY, lastScrollY])
 
   useEffect(() => {
-    gsap.to(navContainerRef.current, {
+    gsap.to(navContainerRef, {
         y: isNavVisible ? 0 : -100,
         opacity: isNavVisible ? 1 : 0,
         duration: 0.05,
@@ -54,13 +61,21 @@ const Navbar = () => {
     }
 
   }, [isAudioPlaying])
+
+  const handleLogoClick = () => {
+    if (location.pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
   
   return (
-    <div ref={navContainerRef} className="fixed inset-x-0 top-4 z-50 h-16 border-none translate-all duration-700 sm:inset-x-6">        
+    <div ref={navContainerRef} className="fixed inset-x-0 top-0 z-50 h-10 border-none translate-all rounded-none duration-700 sm:-inset-x-2">        
         <header className="absolute top-1/2 w-full -translate-y-1/2">
-            <nav className="flex size-full items-center justify-between p-4">
+            <nav className="flex size-full items-center justify-between p-8">
                 <div className="flex items-center gap-7">
-                    <img src="/img/hp-logo-2.png" alt="logo" className="w-14" />
+                    <Link to="/" onClick={handleLogoClick}>
+                      <img src="/img/hp-logo-2.png" alt="logo" className="w-8" />
+                    </Link>
                     {/* <Button 
                         id="something-button"
                         title="Something"
@@ -73,9 +88,9 @@ const Navbar = () => {
                 <div className="flex h-full items-center">
                     <div className="hidden md:block">
                         {navItems.map((item) => (
-                            <a key={item} href={`#${item.toLowerCase()}`} className="nav-hover-btn">
-                                {item}
-                            </a>
+                            <Link key={item.name} to={item.path} className="nav-hover-btn">
+                            {item.name}
+                            </Link>
                         ))}
                     </div>
                     

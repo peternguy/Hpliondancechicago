@@ -1,24 +1,37 @@
-import React from 'react'
-import Hero from './components/Hero.jsx'
-import About from './components/About.jsx'
-import Navbar from './components/Navbar.jsx'
-import Features from './components/Features.jsx'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Bridge from './components/Bridge';
+import Features from './components/Features';
+import Hero from './pages/Hero';
+import Services from './pages/Services';
+import Sponsor from './pages/Sponsor';
+import Contact from './pages/Contact';
+import About from './pages/About';
+
+const Home = () => (
+  <div>
+    <Hero />
+    <Bridge />
+    <Features />
+  </div>
+);
 
 const App = () => {
   return (
-    <main>
-      <main className='relative min-h-screen w-screen overflow-x-hidden'>
+    <main className='relative min-h-screen w-screen overflow-x-hidden'>
+      <Router>
         <Navbar />
-
-        <Hero />
-
-        <About />
-
-        <Features />
-      </main>
-
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/sponsor" element={<Sponsor />} />
+        </Routes>
+      </Router>
     </main>
-  )
-}
+  );
+};
 
-export default App
+export default App;
