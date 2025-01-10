@@ -8,19 +8,21 @@ import Services from './pages/Services';
 import Sponsor from './pages/Sponsor';
 import Contact from './pages/Contact';
 import About from './pages/About';
+import Story from './components/Story';
 
 const Home = () => (
   <div>
     <Hero />
     <Bridge />
     <Features />
+    <Story />
   </div>
 );
 
 const App = () => {
   return (
     <main className='relative min-h-screen w-screen overflow-x-hidden'>
-      <Router>
+      <Router basename="/Hpliondancechicago">
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
