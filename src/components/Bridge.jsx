@@ -2,6 +2,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
 import AnimatedTitle from "./AnimatedTitle";
+import AnimatedTitle2 from "./AnimatedTitle2";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,7 +11,7 @@ const About = () => {
     const clipAnimation = gsap.timeline({
       scrollTrigger: {
         trigger: "#clip",
-        start: "center center",
+        start: "center 50%",
         end: "+=800 center",
         scrub: 0.5,
         pin: true,
@@ -46,7 +47,7 @@ const About = () => {
       <div className="h-dvh w-screen" id="clip">
         <div className="mask-clip-path about-image">
           <img
-            src="img/modern-lion-dance.webp"
+            src="img/IMG_1566.jpeg"
             alt="Background"
             className="absolute left-0 top-0 size-full object-cover"
           />

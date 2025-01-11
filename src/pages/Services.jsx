@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import gsap from 'gsap';
-
+import AnimatedTitle2 from '../components/AnimatedTitle2';
 
 const services = [
   {
     id: 1,
-    name: 'Weddings',
+    name: "Weddings",
     description: (
       <div className="text-gray-400">
         Our wedding lion dance routine follows the traditional customs and can be customized based on your cultures. 
@@ -35,7 +35,7 @@ const services = [
   },
   {
     id: 4,
-    name: 'Restaurant Performances',
+    name: 'Restaurants',
     description: (
       <div className="text-gray-300">
         Description for Service 4
@@ -77,57 +77,101 @@ const services = [
     name: 'Private Parties',
     description: (
       <div className="text-gray-400">
-        Our wedding lion dance routine follows the traditional customs and can be customized based on your cultures. 
-        The team can do a regular lion dance or a surprise one (if this is being arranged by a relative or friend). 
-        We understand the time constraints at a wedding event — the routine will not take longer than you require.
-        Our wedding lion dance routine follows the traditional customs and can be customized based on your cultures. 
-        The team can do a regular lion dance or a surprise one (if this is being arranged by a relative or friend). 
-        We understand the time constraints at a wedding event — the routine will not take longer than you require.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. 
+        Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at 
+        nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.
+  
+        Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. 
+        Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+  
+        Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. 
+  
+        Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. 
+        Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. 
+        Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. 
+  
+        <br /><br />
+  
+        Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. 
+        Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per 
+        conubia nostra, per inceptos himenaeos. Nam nec ante. 
+  
+        Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. 
+        Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet.
+  
+        <br /><br />
+  
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. 
+        Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at 
+        nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.
+  
+        Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. 
+        Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+  
+        <br /><br />
+  
+        Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. 
+        Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. 
+        Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. 
+        Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet.
 
-        Our wedding lion dance routine follows the traditional customs and can be customized based on your cultures. 
-        The team can do a regular lion dance or a surprise one (if this is being arranged by a relative or friend). 
-        We understand the time constraints at a wedding event — the routine will not take longer than you require.
-        Our wedding lion dance routine follows the traditional customs and can be customized based on your cultures. 
-        The team can do a regular lion dance or a surprise one (if this is being arranged by a relative or friend). 
-        We understand the time constraints at a wedding event — the routine will not take longer than you require.
+        <br /><br />
+  
+        Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. 
+        Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. 
+        Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. 
+        Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet.
 
+        <br /><br />
+  
+        Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. 
+        Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. 
+        Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. 
+        Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet.
       </div>
     ),
   },
+  
 ];
 
 
-const ServicePage = () => {
+const Services = () => {
   const [selectedService, setSelectedService] = useState(null);
 
   return (
-    <div className="flex flex-col bg-blue-300 md:flex-row min-h-screen font-general pt-16 md:pt-0">
+    <div className="flex flex-col bg-blue-50 md:flex-row min-h-screen font-circular-web  pt-16 md:pt-0">
       {/* List Section */}
       <div className="w-full md:w-1/4 p-3 border-b md:border-b-0 md:border-r border-gray-300 flex flex-col justify-center">
         {services.map((service) => (
           <button
             key={service.id}
             onClick={() => setSelectedService(service)}
-            className="p-4 text-left text-sm md:text-2xl transition-colors duration-300 hover:bg-gray-200"
+            className="p-2 text-left text-sm md:text-2xl transition-colors duration-300 hover:bg-gray-200"
           >
-            {service.name}
+            <AnimatedTitle2
+              title={service.name}
+              containerClass="mt-1 !text-black text-left"
+            />          
           </button>
         ))}
       </div>
 
       {/* Details Section */}
-      <div className="w-full md:flex-1 p-5 flex flex-col justify-center items-start bg-black text-white">
+      <div className="w-full md:flex-1 p-5 flex flex-col justify-center items-start bg-blue-50 text-black">
         {selectedService ? (
           <>
-            <h2 className="mb-2 text-white text-2xl font-semibold">{selectedService.name}</h2>
-            <p className="text-sm md:text-lg text-white">{selectedService.description}</p>
+            <AnimatedTitle2
+              title={selectedService.name}
+              containerClass="mt-5 !text-white text-center"
+            />            
+            <p className="text-sm md:text-lg text-black">{selectedService.description}</p>
           </>
         ) : (
-          <p className="text-sm md:text-lg text-white text-center">Select a service to view details</p>
+          <p className="text-sm md:text-lg text-black text-center">Select a service to view details</p>
         )}
       </div>
     </div>
   );
 };
 
-export default ServicePage;
+export default Services;

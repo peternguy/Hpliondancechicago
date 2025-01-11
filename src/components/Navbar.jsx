@@ -8,8 +8,10 @@ import { Link } from 'react-router-dom'
 const navItems = [
     { name: 'Gallery', path: '/gallery' },
     { name: 'About', path: '/about' },
+    { name: 'Join', path: '/contact' },
+    { name: 'Sponsor', path: '/sponsor' },
     { name: 'Contact', path: '/contact' },
-    { name: 'Sponsor', path: '/sponsor' }
+
   ];
   
 const Navbar = () => { 
