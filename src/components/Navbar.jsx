@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom'
 const navItems = [
     { name: 'Gallery', path: '/gallery' },
     { name: 'About', path: '/about' },
-    { name: 'Services', path: '/services' },
     { name: 'Contact', path: '/contact' },
     { name: 'Sponsor', path: '/sponsor' }
   ];
@@ -63,7 +62,7 @@ const Navbar = () => {
   }, [isAudioPlaying])
 
   const handleLogoClick = () => {
-    if (location.pathname === '/') {
+    if (location.pathname === '/Hpliondancechicago/') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
@@ -74,14 +73,16 @@ const Navbar = () => {
             <nav className="flex size-full items-center justify-between p-8">
                 <div className="flex items-center gap-7">
                     <Link to="/" onClick={handleLogoClick}>
-                      <img src="/img/hp-logo-2.png" alt="logo" className="w-8" />
+                      <img src="./img/hp-logo-2.png" alt="logo" className="w-8" />
                     </Link>
-                    {/* <Button 
-                        id="something-button"
-                        title="Something"
-                        rightIcon={<TiLocationArrow />}
-                        containerClass="bg-blue-50 md:flex hidden items-center justify-center gap-1"
-                    /> */}
+                    <Link to="/services" className="inline-block">
+                      <Button 
+                          id="services-button"
+                          title="SERVICES"
+                          rightIcon={<TiLocationArrow />}
+                          containerClass="bg-blue-50 md:flex hidden items-center justify-center"
+                      />
+                    </Link>
 
 
                 </div>
@@ -95,7 +96,7 @@ const Navbar = () => {
                     </div>
                     
                     <button className="ml-10 flex items-center space-x-0.5" onClick={toggleAudioIndicator}>
-                        <audio ref={audioElementRef} className="hidden" src="/audio/loop.mp3" loop />
+                        <audio ref={audioElementRef} className="hidden" src="./audio/loop.mp3" loop />
                             {[1,2,3,4].map((bar) => (
                                 <div key={bar} className={`indicator-line ${isIndicatorActive ? 'active' : ''}`} style={{animationDelay: `${bar * 0.1}s`}} />
                             ))}

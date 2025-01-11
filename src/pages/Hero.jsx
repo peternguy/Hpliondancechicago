@@ -4,6 +4,7 @@ import {TiLocationArrow} from 'react-icons/ti'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from "gsap/all";
+import { Link } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -147,12 +148,15 @@ const Hero = () => {
                     Step into the culture <br /> Celebrate the tradition
                     </p>
 
-                    <Button
-                    id="book-now"
-                    title="Book now" 
-                    leftIcon={<TiLocationArrow />}
-                    containerClass="!bg-blue-400 flex-center gap-1"
-                    />
+                    <Link to="/contact" className="inline-block">
+                      <Button
+                        className = "hover-btn"
+                        id="book-now"
+                        title="Book now"
+                        leftIcon={<TiLocationArrow />}
+                        containerClass="!bg-blue-400 flex-center gap-1"
+                      />
+                    </Link>
                 </div>
             </div>
         
