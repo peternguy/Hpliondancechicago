@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Redirecting...</title>
     <script type="text/javascript">
-      // Extract the current path from the URL
+      // Get the current path
       const pathname = window.location.pathname;
 
-      // Redirect to the React app with the current path preserved
-      window.location.replace('/Hpliondancechicago' + pathname);
+      // Check if the path already starts with the basename
+      const base = '/Hpliondancechicago';
+      if (!pathname.startsWith(base)) {
+        // Redirect to the correct path
+        window.location.replace(base + pathname);
+      }
     </script>
   </head>
   <body>
