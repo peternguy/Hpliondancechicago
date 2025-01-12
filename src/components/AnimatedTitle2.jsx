@@ -26,7 +26,7 @@ const AnimatedTitle2 = ({ title, containerClass }) => {
           opacity: 1,
           y: 0, // Move to original position
           ease: 'power1.out',
-          stagger: 0.015, // Delay between letters
+          stagger: 0.018, // Delay between letters
         }
       );
     }, containerRef);

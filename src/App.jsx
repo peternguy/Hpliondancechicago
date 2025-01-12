@@ -11,6 +11,7 @@ import About from './pages/About';
 import Gallery from './pages/Gallery';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import NotFound from './pages/NotFound';
 
 const Home = () => (
   <div>
@@ -35,6 +36,7 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/sponsor" element={<Sponsor />} />
         <Route path="/gallery" element={<Gallery />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       {!noFooterPaths.includes(location.pathname) && <Footer />} 
     </main>
