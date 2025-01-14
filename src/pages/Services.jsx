@@ -1,177 +1,273 @@
-import React, { useState } from 'react';
-import gsap from 'gsap';
-import AnimatedTitle2 from '../components/AnimatedTitle2';
+import { useState, useRef } from "react";
+import { TiLocationArrow } from "react-icons/ti";
+import AnimatedTitle2 from "../components/AnimatedTitle2";
+import AnimatedTitle from "../components/AnimatedTitle";
+import gsap from "gsap";
 
-const services = [
-  {
-    id: 1,
-    name: "Weddings",
-    description: (
-      <div className="text-gray-400">
-        Our wedding lion dance routine follows the traditional customs and can be customized based on your cultures. 
-        The team can do a regular lion dance or a surprise one (if this is being arranged by a relative or friend). 
-        We understand the time constraints at a wedding event — the routine will not take longer than you require.
-      </div>
-    ),
-  },
-  {
-    id: 2,
-    name: 'Lunar New Year',
-    description: (
-      <div className="text-gray-300">
-        Celebrate Lunar New Year with vibrant lion dances that bring joy and good fortune. 
-        Our performances are tailored for cultural events, ensuring an unforgettable experience.
-      </div>
-    ),
-  },
-  {
-    id: 3,
-    name: 'Grand Openings',
-    description: (
-      <div className="text-gray-300">
-        Description for Service 3
-      </div>
-    ),
-  },
-  {
-    id: 4,
-    name: 'Restaurants',
-    description: (
-      <div className="text-gray-300">
-        Description for Service 4
-      </div>
-    ),
-  },
-  {
-    id: 5,
-    name: 'Workshops',
-    description: (
-      <div className="text-gray-300">
-        Celebrate Lunar New Year with vibrant lion dances that bring joy and good fortune. 
-        Our performances are tailored for cultural events, ensuring an unforgettable experience.
-      </div>
-    ),
-  },
-  {
-    id: 6,
-    name: 'Corporate Events',
-    description: (
-      <div className="text-gray-300">
-        Description for Service 4
-      </div>
-    ),
-  },
-  {
-    id: 7,
-    name: 'Festivals',
-    description: (
-      <div className="text-gray-400">
-        Our wedding lion dance routine follows the traditional customs and can be customized based on your cultures. 
-        The team can do a regular lion dance or a surprise one (if this is being arranged by a relative or friend). 
-        We understand the time constraints at a wedding event — the routine will not take longer than you require.
-      </div>
-    ),
-  },
-  {
-    id: 8,
-    name: 'Private Parties',
-    description: (
-      <div className="text-gray-400">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. 
-        Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at 
-        nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.
-  
-        Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. 
-        Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-  
-        Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. 
-  
-        Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. 
-        Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. 
-        Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. 
-  
-        <br /><br />
-  
-        Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. 
-        Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per 
-        conubia nostra, per inceptos himenaeos. Nam nec ante. 
-  
-        Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. 
-        Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet.
-  
-        <br /><br />
-  
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. 
-        Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at 
-        nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.
-  
-        Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. 
-        Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-  
-        <br /><br />
-  
-        Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. 
-        Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. 
-        Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. 
-        Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet.
+export const BentoTilt = ({ children, className = "" }) => {
+  const [transformStyle, setTransformStyle] = useState("");
+  const itemRef = useRef(null);
 
-        <br /><br />
-  
-        Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. 
-        Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. 
-        Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. 
-        Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet.
+  const handleMouseMove = (event) => {
+    if (!itemRef.current) return;
 
-        <br /><br />
-  
-        Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. 
-        Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. 
-        Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. 
-        Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet.
-      </div>
-    ),
-  },
-  
-];
+    const { left, top, width, height } =
+      itemRef.current.getBoundingClientRect();
 
+    const relativeX = (event.clientX - left) / width;
+    const relativeY = (event.clientY - top) / height;
 
-const Services = () => {
-  const [selectedService, setSelectedService] = useState(null);
+    const tiltX = (relativeY - 0.5) * 5;
+    const tiltY = (relativeX - 0.5) * -5;
+
+    const newTransform = `perspective(700px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(.95, .95, .95)`;
+    setTransformStyle(newTransform);
+  };
+
+  const handleMouseLeave = () => {
+    setTransformStyle("");
+  };
 
   return (
-    <div className="flex flex-col bg-blue-50 md:flex-row min-h-screen font-circular-web  pt-16 md:pt-0">
-      {/* List Section */}
-      <div className="w-full md:w-1/4 p-3 border-b md:border-b-0 md:border-r border-gray-300 flex flex-col justify-center">
-        {services.map((service) => (
-          <button
-            key={service.id}
-            onClick={() => setSelectedService(service)}
-            className="p-2 text-left text-sm md:text-2xl transition-colors duration-300 hover:bg-gray-200"
-          >
-            <AnimatedTitle2
-              title={service.name}
-              containerClass="mt-1 !text-black text-left"
-            />          
-          </button>
-        ))}
-      </div>
+    <div
+      ref={itemRef}
+      className={className}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{ transform: transformStyle }}
+    >
+      {children}
+    </div>
+  );
+};
 
-      {/* Details Section */}
-      <div className="w-full md:flex-1 p-5 flex flex-col justify-center items-start bg-blue-50 text-black">
-        {selectedService ? (
-          <>
-            <AnimatedTitle2
-              title={selectedService.name}
-              containerClass="mt-5 !text-white text-center"
-            />            
-            <p className="text-sm md:text-lg text-black">{selectedService.description}</p>
-          </>
-        ) : (
-          <p className="text-sm md:text-lg text-black text-center">Select a service to view details</p>
+export const BentoCard = ({ src, title, description, isComingSoon }) => {
+  const [hoverOpacity, setHoverOpacity] = useState(0);
+  const imgRef = useRef(null);
+
+  const handleMouseEnter = () => {
+    setHoverOpacity(1);
+    if (imgRef.current) {
+      gsap.to(imgRef.current, {
+        y: -165, // Slide up the image by 10px
+        duration: 0.1,
+        ease: "power2.out",
+      });
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setHoverOpacity(0);
+    if (imgRef.current) {
+      gsap.to(imgRef.current, {
+        y: 0, // Reset the image position
+        duration: 0.1,
+        ease: "power2.out",
+      });
+    }
+  };
+
+  return (
+    <div
+      className="relative size-full overflow-hidden rounded-lg shadow-lg bg-gray-800"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      {/* Image */}
+      <img
+        ref={imgRef}
+        src={src}
+        alt={title}
+        className="absolute left-0 top-60 size-full object-cover object-center transition-transform duration-300"
+      />
+      {/* Text Content */}
+      <div className="relative z-10 flex size-full flex-col justify-between p-5 text-blue-50 bg-black/60">
+        <div>
+          <h1 className="bento-title special-font">{title}</h1>
+          {description && (
+            <p className="mt-3 max-w-64 text-xs md:text-base">{description}</p>
+          )}
+        </div>
+
+        {isComingSoon && (
+          <div className="border-hsla relative flex w-fit cursor-pointer items-center gap-1 overflow-hidden rounded-full bg-black px-5 py-2 text-xs uppercase text-white/20">
+            <TiLocationArrow className="relative z-20" />
+            <p className="relative z-20">Coming Soon</p>
+          </div>
         )}
       </div>
     </div>
   );
 };
+
+
+const Services = () => (
+  <section className="bg-gray-900 pb-40">
+    <div className="container mx-auto px-3 md:px-10">
+      <div className="px-5 py-32">
+        <AnimatedTitle2 
+          title = "SERVICES" 
+          containerClass="mt-5 !text-blue-50 text-left font-zentry text-9xl ml-0 md:ml-5"
+
+        />
+
+        <AnimatedTitle2 
+          title = "Immoble yorsnelf inna rifflish und evra-spuga" 
+          containerClass="max-w-md font-circular-web text-lg text-blue-50 opacity-50 px-10"
+        />
+
+        <AnimatedTitle2 
+          title = "Imlibbering your glopplay to be more zazz an" 
+          containerClass="max-w-md font-circular-web text-lg text-blue-50 opacity-50 px-10"
+        />
+      </div>
+
+      {/* <div className="grid h-[170vh] w-full grid-cols-3 grid-rows-4 gap-7 rounded-full"> */}
+      <div className="grid w-full gap-7 rounded-full sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+
+        <BentoTilt className="bento-tilt_1 me-14 md:col-span-1 md:me-0">
+          <BentoCard
+            id="weddings"
+            src="img/hp-logo-2.png"
+            title={
+              <AnimatedTitle2 
+              title="Weddings" 
+              containerClass="font-zentry text-5xl"
+              />
+            }
+            //description="ABlorp-zap AI Wizzle - flibbering your glopplay to be more zazz and sprockety."
+            isComingSoon
+          />
+        </BentoTilt>
+
+        <BentoTilt className="bento-tilt_1 me-14 md:col-span-1 md:me-0">
+          <BentoCard
+            src="img/hp-logo-2.png"
+            title={
+              <AnimatedTitle2 
+              title="Lunar New Year" 
+              containerClass="font-zentry text-5xl"
+              />
+            }
+            //description="ABlorp-zap AI Wizzle - flibbering your glopplay to be more zazz and sprockety."
+            isComingSoon
+          />
+        </BentoTilt>
+
+        <BentoTilt className="bento-tilt_1 me-14 md:col-span-1 md:me-0">
+          <BentoCard
+            src="img/hp-logo-2.png"
+            title={
+              <AnimatedTitle2 
+              title="Grand Openings" 
+              containerClass="font-zentry"
+              />
+            }
+            //description="ABlorp-zap AI Wizzle - flibbering your glopplay to be more zazz and sprockety."
+            isComingSoon
+          />
+        </BentoTilt>
+
+        <BentoTilt className="bento-tilt_1 me-14 md:col-span-1 md:me-0">
+          <BentoCard
+            src="img/hp-logo-2.png"
+            title={
+              <AnimatedTitle2 
+              title="Restaurants" 
+              containerClass="font-zentry"
+              />
+            }
+            //description="ABlorp-zap AI Wizzle - flibbering your glopplay to be more zazz and sprockety."
+            isComingSoon
+          />
+        </BentoTilt>
+
+        <BentoTilt className="bento-tilt_1 me-14 md:col-span-1 md:me-0">
+          <BentoCard
+            src="img/hp-logo-2.png"
+            title={
+              <>
+                Workshops
+              </>
+            }
+            //description="ABlorp-zap AI Wizzle - flibbering your glopplay to be more zazz and sprockety."
+            isComingSoon
+          />
+        </BentoTilt>
+
+        <BentoTilt className="bento-tilt_1 me-14 md:col-span-1 md:me-0">
+          <BentoCard
+            src="img/hp-logo-2.png"
+            title={
+              <>
+                Corporate Events
+              </>
+            }
+            //description="ABlorp-zap AI Wizzle - flibbering your glopplay to be more zazz and sprockety."
+            isComingSoon
+          />
+        </BentoTilt>
+
+        <BentoTilt className="bento-tilt_1 me-14 md:col-span-1 md:me-0">
+          <BentoCard
+            src="img/hp-logo-2.png"
+            title={
+              <>
+                Festivals
+              </>
+            }
+            //description="ABlorp-zap AI Wizzle - flibbering your glopplay to be more zazz and sprockety."
+            isComingSoon
+          />
+        </BentoTilt>
+
+        <BentoTilt className="bento-tilt_1 me-14 md:col-span-1 md:me-0">
+          <BentoCard
+            src="img/hp-logo-2.png"
+            title={
+              <>
+                Private Parties
+              </>
+            }
+            //description="ABlorp-zap AI Wizzle - flibbering your glopplay to be more zazz and sprockety."
+            isComingSoon
+          />
+        </BentoTilt>
+
+        <BentoTilt className="bento-tilt_1 me-14 md:col-span-1 md:me-0">
+          <BentoCard
+            src="img/hp-logo-2.png"
+            title={
+              <>
+                AND MORE...
+              </>
+            }
+            //description="ABlorp-zap AI Wizzle - flibbering your glopplay to be more zazz and sprockety."
+            isComingSoon
+          />
+        </BentoTilt>
+
+        <BentoTilt className="bento-tilt_1 me-14 md:col-span-3 md:me-0">
+          <BentoCard
+            src="img/hp-logo-2.png"
+            title={
+              <>
+                Contact Now
+              </>
+            }
+            //description="ABlorp-zap AI Wizzle - flibbering your glopplay to be more zazz and sprockety."
+            isComingSoon
+          />
+        </BentoTilt>
+
+
+        
+      </div>
+
+  
+      
+    </div>
+  </section>
+);
 
 export default Services;

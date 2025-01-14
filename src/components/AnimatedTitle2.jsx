@@ -26,7 +26,7 @@ const AnimatedTitle2 = ({ title, containerClass }) => {
           opacity: 1,
           y: 0, // Move to original position
           ease: 'power1.out',
-          stagger: 0.018, // Delay between letters
+          stagger: 0.015, // Delay between letters
         }
       );
     }, containerRef);
@@ -37,7 +37,7 @@ const AnimatedTitle2 = ({ title, containerClass }) => {
   return (
     <div ref={containerRef} className={`animated-title2 ${containerClass}`}>
       {title.split('<br />').map((line, index) => (
-        <div key={index} className="flex justify-center max-w-full flex-wrap overflow-hidden">
+        <div key={index} className="flex max-w-full flex-wrap overflow-hidden">
           {line.split('').map((char, i) => (
             <span
               key={i}
